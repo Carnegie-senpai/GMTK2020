@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update() {
+        // Shooting code (can only handle mouse click input in update
         if (Input.GetMouseButtonDown(0)) {
             Debug.Log("shoot");
             shootTimer = Time.time;
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviour
             }
             anim.SetTrigger("shoot");
         }
+        // Shot resolution
         if (shootTimer + shootTime < Time.time) {
             renderer.transform.rotation = Quaternion.identity;
             switch (state) {
@@ -79,9 +81,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-
-
-
+        // State transition code
         PlayerState nextState = state;
         switch (state) {
             case PlayerState.IDLE:
@@ -142,6 +142,7 @@ public class PlayerController : MonoBehaviour
                 break;
         }
 
+        // State transition resolution and animation triggers
         if (nextState != state) {
             state = nextState;
             if (shootTimer + shootTime < Time.time) {
@@ -165,6 +166,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void Land() {
+        // To be called by falling hitbox
         if (shootTimer + shootTime < Time.time) {
             if (state == PlayerState.JUMPING || state == PlayerState.FREEFALL) {
                 if (rb.velocity.x != 0) {
@@ -182,12 +184,8 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
         float inX = Input.GetAxisRaw("Horizontal");
-        //float signX = Mathf.Sign(inX);
-        //float magX = Mathf.Pow(Mathf.Abs(inX), inputGamma);
-        //float dx = signX * magX * speed;
         float dx = speed * inX;
 
         Vector2 v = rb.velocity;
@@ -204,7 +202,5 @@ public class PlayerController : MonoBehaviour
 
         if (rb.velocity.x < 0) right = false;
         if (rb.velocity.x > 0) right = true;
-
-        
     }
 }
