@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public Vector3 RespawnPoint = new Vector3(0, 0, 0);
     public float speed = 1.0f;
     public float inputGamma = 0.5f;
     public float dragX = 0.8f;
@@ -244,5 +245,9 @@ public class PlayerController : MonoBehaviour
 
         if (rb.velocity.x < 0) right = false;
         if (rb.velocity.x > 0) right = true;
+    }
+
+    public void Respawn() {
+        gameObject.transform.position = RespawnPoint;
     }
 }

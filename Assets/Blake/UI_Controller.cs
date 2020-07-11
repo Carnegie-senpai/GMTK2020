@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class UI_Controller : MonoBehaviour
 {
     public GameObject CreditsPanel;
-    public void QuitGame() {
+    public void QuitGame() 
+    {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = (false);
 #else
@@ -16,7 +17,8 @@ public class UI_Controller : MonoBehaviour
 
     }
 
-    public void PlayGame() {
+    public void PlayGame() 
+    {
         SceneManager.LoadScene(1);
     }
 
