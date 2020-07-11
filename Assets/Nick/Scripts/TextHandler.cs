@@ -142,11 +142,15 @@ public class TextHandler : MonoBehaviour
                     {
                         if (Time.time - time > 0.05)
                         {
-                            if (scrollcount == 0)
+                            if (messages[spot][scrollcount] == '^')
                             {
                                 text.text += "\n";
+
                             }
-                            text.text += messages[spot][scrollcount];
+                            else
+                            {
+                                text.text += messages[spot][scrollcount];
+                            }
                             scrollcount++;
                             time = Time.time;
                         }

@@ -75282,7 +75282,7 @@ PrefabInstance:
     - target: {fileID: 1154504169259022892, guid: e12362605a6d6804fa27504af61535f1,
         type: 3}
       propertyPath: messages.Array.data[0]
-      value: 'Hello '
+      value: Hello^
       objectReference: {fileID: 0}
     - target: {fileID: 1154504169259022892, guid: e12362605a6d6804fa27504af61535f1,
         type: 3}
