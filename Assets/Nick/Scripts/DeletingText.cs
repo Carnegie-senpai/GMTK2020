@@ -25,7 +25,7 @@ public class DeletingText : MonoBehaviour
         {
             if (count < amount)
             {
-                text.text 
+                //text.text 
             }
         }
     }
