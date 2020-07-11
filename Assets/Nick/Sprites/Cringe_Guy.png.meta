@@ -1,0 +1,968 @@
+fileFormatVersion: 2
+guid: b75599d77ba431549a8562a4fa81b7d0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6770272765052718657
+    second: Cringe_Guy_0
+  - first:
+      213: -6044357307456139424
+    second: Cringe_Guy_1
+  - first:
+      213: 6035378465349283208
+    second: Cringe_Guy_2
+  - first:
+      213: 4055440787866934160
+    second: Cringe_Guy_3
+  - first:
+      213: -5216148426708188443
+    second: Cringe_Guy_4
+  - first:
+      213: -2169032977879790815
+    second: Cringe_Guy_5
+  - first:
+      213: 5709627706778273022
+    second: Cringe_Guy_6
+  - first:
+      213: 3109079287792266057
+    second: Cringe_Guy_7
+  - first:
+      213: 5925884451748149424
+    second: Cringe_Guy_8
+  - first:
+      213: -3665998025565274671
+    second: Cringe_Guy_9
+  - first:
+      213: -8964457298196274871
+    second: Cringe_Guy_10
+  - first:
+      213: 1222338684853737169
+    second: Cringe_Guy_11
+  - first:
+      213: 8509546663340493192
+    second: Cringe_Guy_12
+  - first:
+      213: 4283678698198310301
+    second: Cringe_Guy_13
+  - first:
+      213: 2477347302809627165
+    second: Cringe_Guy_14
+  - first:
+      213: -9175530271309914413
+    second: Cringe_Guy_15
+  - first:
+      213: -5835418622600745648
+    second: Cringe_Guy_16
+  - first:
+      213: -7449337343003910395
+    second: Cringe_Guy_17
+  - first:
+      213: 5248325797263538777
+    second: Cringe_Guy_18
+  - first:
+      213: -2803884562914127306
+    second: Cringe_Guy_19
+  - first:
+      213: -6669686201153507260
+    second: Cringe_Guy_20
+  - first:
+      213: 7239193871543123855
+    second: Cringe_Guy_21
+  - first:
+      213: 3978854636921236861
+    second: Cringe_Guy_22
+  - first:
+      213: 634216968534594626
+    second: Cringe_Guy_23
+  - first:
+      213: 2530226029488562046
+    second: Cringe_Guy_24
+  - first:
+      213: 4911905404101892090
+    second: Cringe_Guy_25
+  - first:
+      213: 2016965358737827880
+    second: Cringe_Guy_26
+  - first:
+      213: -5125312050101385899
+    second: Cringe_Guy_27
+  - first:
+      213: 5487170004977374787
+    second: Cringe_Guy_28
+  - first:
+      213: -6321658204281795434
+    second: Cringe_Guy_29
+  - first:
+      213: -134839974725726741
+    second: Cringe_Guy_30
+  - first:
+      213: 4589583966130353445
+    second: Cringe_Guy_31
+  - first:
+      213: 5585722874121664232
+    second: Cringe_Guy_32
+  - first:
+      213: 3354819305613875839
+    second: Cringe_Guy_33
+  - first:
+      213: 5510928194959574909
+    second: Cringe_Guy_34
+  - first:
+      213: 2666150903705397622
+    second: Cringe_Guy_35
+  - first:
+      213: -7572313007656516779
+    second: Cringe_Guy_36
+  - first:
+      213: -2835003768707443066
+    second: Cringe_Guy_37
+  - first:
+      213: 5090918511409061187
+    second: Cringe_Guy_38
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cringe_Guy_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 320
+        width: 31
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14e08799537d4fd50800000000000000
+      internalID: 6770272765052718657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 320
+        width: 31
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06f4a81ad012e1ca0800000000000000
+      internalID: -6044357307456139424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_2
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 320
+        width: 31
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88daf28ccb8f1c350800000000000000
+      internalID: 6035378465349283208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_3
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 320
+        width: 31
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09b5070f8e1d74830800000000000000
+      internalID: 4055440787866934160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_4
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 320
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e2885a64a48c97b0800000000000000
+      internalID: -5216148426708188443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_5
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 320
+        width: 31
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12b0e57affb06e1e0800000000000000
+      internalID: -2169032977879790815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_6
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 256
+        width: 31
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef44f3ef52cac3f40800000000000000
+      internalID: 5709627706778273022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_7
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 256
+        width: 31
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94be16fb32ba52b20800000000000000
+      internalID: 3109079287792266057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_8
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 256
+        width: 32
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b8757e1388fc3250800000000000000
+      internalID: 5925884451748149424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_9
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 256
+        width: 31
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ddf5e21832cf1dc0800000000000000
+      internalID: -3665998025565274671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_10
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 256
+        width: 31
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9416ad04599d79380800000000000000
+      internalID: -8964457298196274871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_11
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 256
+        width: 31
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d6dce1ce8e96f010800000000000000
+      internalID: 1222338684853737169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_12
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 192
+        width: 31
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8894504da9bf71670800000000000000
+      internalID: 8509546663340493192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_13
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 192
+        width: 31
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d9402841fa27b30800000000000000
+      internalID: 4283678698198310301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_14
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 192
+        width: 31
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1a6d311f3e416220800000000000000
+      internalID: 2477347302809627165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_15
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 192
+        width: 31
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3de9ab015d7f9a080800000000000000
+      internalID: -9175530271309914413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_16
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 192
+        width: 31
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05dee2c1ead640fa0800000000000000
+      internalID: -5835418622600745648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_17
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 192
+        width: 31
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50f1332a723ae9890800000000000000
+      internalID: -7449337343003910395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_18
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 128
+        width: 31
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95a796b718cc5d840800000000000000
+      internalID: 5248325797263538777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_19
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 128
+        width: 32
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6325d4c78d99619d0800000000000000
+      internalID: -2803884562914127306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_20
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 128
+        width: 33
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 440bbe0dcb38073a0800000000000000
+      internalID: -6669686201153507260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_21
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 128
+        width: 39
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f3385a878c67460800000000000000
+      internalID: 7239193871543123855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_22
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 128
+        width: 38
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7d2b9e163bb73730800000000000000
+      internalID: 3978854636921236861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_23
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 128
+        width: 36
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 244970009f03dc800800000000000000
+      internalID: 634216968534594626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_24
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 64
+        width: 35
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7fdc190b2b2d1320800000000000000
+      internalID: 2530226029488562046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_25
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 64
+        width: 33
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af790ddc0f79a2440800000000000000
+      internalID: 4911905404101892090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_26
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 64
+        width: 33
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82826d3be43bdfb10800000000000000
+      internalID: 2016965358737827880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_27
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 64
+        width: 33
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5558da278db3fd8b0800000000000000
+      internalID: -5125312050101385899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_28
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 64
+        width: 31
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 346dad81c08562c40800000000000000
+      internalID: 5487170004977374787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_29
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 64
+        width: 31
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69c89565b55f448a0800000000000000
+      internalID: -6321658204281795434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_30
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 0
+        width: 31
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bed43f4e1c3f02ef0800000000000000
+      internalID: -134839974725726741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_31
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 0
+        width: 31
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5253700fc4a71bf30800000000000000
+      internalID: 4589583966130353445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_32
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 0
+        width: 31
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e6bbcd0c59748d40800000000000000
+      internalID: 5585722874121664232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_33
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 2
+        width: 33
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7adcb44266be8e20800000000000000
+      internalID: 3354819305613875839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cringe_Guy_34
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 2
+        width: 33
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d770043ceffba7c40800000000000000
+      internalID: 5510928194959574909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
