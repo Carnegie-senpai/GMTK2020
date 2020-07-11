@@ -17,7 +17,7 @@ public class PlayerCollision : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("Ow I am dead daddy");
-            Destroy(player);
+            player.SetActive(false);
         }
     }
 }
