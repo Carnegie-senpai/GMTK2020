@@ -38,8 +38,9 @@ public class PlayerController : MonoBehaviour
     public float dragX = 0.8f;
     public float jumpPower = 10.0f;
     public float shootTime = 1.0f;
-    public float recoilStrength = 50.0f;
-    public Vector2 recoilOffset = new Vector3(0, 5);
+    public float shootCooldown = 1.0f;
+    public float recoilStrength = 5.0f;
+    public Vector2 recoilOffset = new Vector3(0, 1);
     public int currentInputSet = 0;
     public InputSet[] restrictions = {
         new InputSet(PlayerInput.LEFT, PlayerInput.RIGHT, PlayerInput.NONE, PlayerInput.NONE),
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 leftScale, rightScale;
 
     private float shootTimer = 0;
+    private float shootCooldownTimer = 0;
 
     public PlayerState state = PlayerState.IDLE;
 
@@ -82,9 +84,9 @@ public class PlayerController : MonoBehaviour
 
     void Update() {
         // Shooting code (can only handle mouse click input in update
-        if (checkInput(restrictions[currentInputSet].shoot)) {
+        if (checkInput(restrictions[currentInputSet].shoot) && shootCooldownTimer + shootCooldown < Time.time) {
             Debug.Log("shoot");
-            shootTimer = Time.time;
+            shootTimer = shootCooldownTimer = Time.time;
             Vector3 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 toMouse = (mousePoint - transform.position).normalized;
             toMouse.z = 0;
