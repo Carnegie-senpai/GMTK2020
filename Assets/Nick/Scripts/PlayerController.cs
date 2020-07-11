@@ -14,6 +14,25 @@ public class PlayerController : MonoBehaviour
         NUM_STATES
     }
 
+    public enum PlayerInput {
+        NONE,
+        LEFT,
+        RIGHT,
+        UP,
+        MOUSE0
+    }
+
+    [System.Serializable]
+    public class InputSet {
+        public PlayerInput left, right, jump, shoot;
+        public InputSet(PlayerInput left, PlayerInput right, PlayerInput jump, PlayerInput shoot) {
+            this.left = left;
+            this.right = right;
+            this.jump = jump;
+            this.shoot = shoot;
+        }
+    }
+
     public float speed = 1.0f;
     public float inputGamma = 0.5f;
     public float dragX = 0.8f;
@@ -21,6 +40,10 @@ public class PlayerController : MonoBehaviour
     public float shootTime = 1.0f;
     public float recoilStrength = 50.0f;
     public Vector2 recoilOffset = new Vector3(0, 5);
+    public int currentInputSet = 0;
+    public InputSet[] restrictions = {
+        new InputSet(PlayerInput.LEFT, PlayerInput.RIGHT, PlayerInput.NONE, PlayerInput.NONE),
+    };
     private bool right = true;
     private Vector3 leftScale, rightScale;
 
@@ -28,7 +51,7 @@ public class PlayerController : MonoBehaviour
 
     public PlayerState state = PlayerState.IDLE;
 
-    public GameObject renderer;
+    public GameObject sprite;
     
     private Animator anim;
     private Rigidbody2D rb;
@@ -37,14 +60,29 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = this.gameObject.GetComponent<Rigidbody2D>();
-        anim = renderer.GetComponent<Animator>();
-        rightScale = renderer.transform.localScale;
+        anim = sprite.GetComponent<Animator>();
+        rightScale = sprite.transform.localScale;
         leftScale = new Vector3(-rightScale.x, rightScale.y, rightScale.z);
+    }
+
+    private bool checkInput(PlayerInput input) {
+        Debug.Log(input);
+        switch (input) {
+            case PlayerInput.LEFT:
+                return Input.GetAxisRaw("Horizontal") < 0;
+            case PlayerInput.RIGHT:
+                return Input.GetAxisRaw("Horizontal") > 0;
+            case PlayerInput.UP:
+                return Input.GetAxisRaw("Vertical") > 0;
+            case PlayerInput.MOUSE0:
+                return Input.GetMouseButton(0);
+        }
+        return false;
     }
 
     void Update() {
         // Shooting code (can only handle mouse click input in update
-        if (Input.GetMouseButtonDown(0)) {
+        if (checkInput(restrictions[currentInputSet].shoot)) {
             Debug.Log("shoot");
             shootTimer = Time.time;
             Vector3 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -52,17 +90,17 @@ public class PlayerController : MonoBehaviour
             toMouse.z = 0;
             rb.velocity -= recoilStrength * (new Vector2(toMouse.x, toMouse.y)) - recoilOffset;
             if (toMouse.x > 0) {
-                renderer.transform.localScale = rightScale;
-                renderer.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(toMouse.y, toMouse.x) * Mathf.Rad2Deg);
+                sprite.transform.localScale = rightScale;
+                sprite.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(toMouse.y, toMouse.x) * Mathf.Rad2Deg);
             } else {
-                renderer.transform.localScale = leftScale;
-                renderer.transform.rotation = Quaternion.Euler(0, 0, 180 + Mathf.Atan2(toMouse.y, toMouse.x) * Mathf.Rad2Deg);
+                sprite.transform.localScale = leftScale;
+                sprite.transform.rotation = Quaternion.Euler(0, 0, 180 + Mathf.Atan2(toMouse.y, toMouse.x) * Mathf.Rad2Deg);
             }
             anim.SetTrigger("shoot");
         }
         // Shot resolution
         if (shootTimer + shootTime < Time.time) {
-            renderer.transform.rotation = Quaternion.identity;
+            sprite.transform.rotation = Quaternion.identity;
             switch (state) {
                 case PlayerState.IDLE:
                     if (right) {
@@ -93,7 +131,7 @@ public class PlayerController : MonoBehaviour
                     nextState = PlayerState.WALKING;
                 }
                 if (shootTimer + shootTime < Time.time) {
-                    renderer.transform.localScale = rightScale;
+                    sprite.transform.localScale = rightScale;
                 }
                 break;
             case PlayerState.WALKING:
@@ -106,9 +144,9 @@ public class PlayerController : MonoBehaviour
                 }
                 if (shootTimer + shootTime < Time.time) {
                     if (right) {
-                        renderer.transform.localScale = rightScale;
+                        sprite.transform.localScale = rightScale;
                     } else {
-                        renderer.transform.localScale = leftScale;
+                        sprite.transform.localScale = leftScale;
                     }
                 }
                 break;
@@ -118,9 +156,9 @@ public class PlayerController : MonoBehaviour
                 }
                 if (shootTimer + shootTime < Time.time) {
                     if (right) {
-                        renderer.transform.localScale = rightScale;
+                        sprite.transform.localScale = rightScale;
                     } else {
-                        renderer.transform.localScale = leftScale;
+                        sprite.transform.localScale = leftScale;
                     }
                 }
                 break;
@@ -134,9 +172,9 @@ public class PlayerController : MonoBehaviour
                 }
                 if (shootTimer + shootTime < Time.time) {
                     if (right) {
-                        renderer.transform.localScale = rightScale;
+                        sprite.transform.localScale = rightScale;
                     } else {
-                        renderer.transform.localScale = leftScale;
+                        sprite.transform.localScale = leftScale;
                     }
                 }
                 break;
@@ -185,11 +223,13 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate() {
-        float inX = Input.GetAxisRaw("Horizontal");
+        float inX = 0;
+        if (checkInput(restrictions[currentInputSet].left)) inX += -1;
+        if (checkInput(restrictions[currentInputSet].right)) inX += 1;
         float dx = speed * inX;
 
         Vector2 v = rb.velocity;
-        float inY = Input.GetAxisRaw("Vertical");
+        float inY = checkInput(restrictions[currentInputSet].jump) ? 1 : 0;
         if (inY > 0 && (state == PlayerState.IDLE || state == PlayerState.WALKING)) {
             v = rb.velocity;
             v.y = jumpPower;
