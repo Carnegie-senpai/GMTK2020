@@ -35,7 +35,6 @@ public class ScrollingText : MonoBehaviour
                 text.text += message[count];
                 count++;
                 time = Time.time;
-                Debug.Log(count);
             }
         }
         else

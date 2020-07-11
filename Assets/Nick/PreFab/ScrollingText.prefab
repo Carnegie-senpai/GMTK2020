@@ -91,6 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d7c623a1763c140bfa10d810a0f6f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: Testing if this now quite verbose message still works
+  message: 
   stationary: {fileID: 9137886892371737159, guid: 40ad11c6dac944a4c8d42b385714620b,
     type: 3}

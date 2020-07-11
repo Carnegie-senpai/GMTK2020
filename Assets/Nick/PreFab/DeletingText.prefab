@@ -91,5 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 981360c9c9ce80a43aba2bea3d383aac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: 123456789
-  amount: 3
+  message: 
+  amount: 0
+  stationary: {fileID: 9137886892371737159, guid: 40ad11c6dac944a4c8d42b385714620b,
+    type: 3}
