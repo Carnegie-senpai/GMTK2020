@@ -17,7 +17,17 @@ public class PlayerCollision : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("Ow I am dead daddy");
-            player.SetActive(false);
+            //player.SetActive(false);
+            player.GetComponent<PlayerController>().Respawn();
+        }
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Checkpoint")
+        {
+            player.GetComponent<PlayerController>().RespawnPoint = collision.gameObject.transform.position;
+            Debug.Log("Respawn set to " + collision.gameObject.transform.position);
         }
     }
 }
