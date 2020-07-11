@@ -14,6 +14,10 @@ public class ScrollingText : MonoBehaviour
     private float time;
     private Text text;
     private int count;
+    private Transform trans;
+    public GameObject stationary;
+    private GameObject s;
+    private string messagecopy;
     // Update is called once per frame
     void Awake()
     {
@@ -24,15 +28,23 @@ public class ScrollingText : MonoBehaviour
     }
     private void Update()
     {
-        if (Time.time - time > .05)
+        if (count < message.Length)
         {
-            if (count < message.Length)
+            if (Time.time - time > .05)   
             {
                 text.text += message[count];
                 count++;
                 time = Time.time;
                 Debug.Log(count);
             }
+        }
+        else
+        {
+            trans = gameObject.transform;
+            Destroy(gameObject);
+            s = Instantiate(stationary, gameObject.transform.parent);
+            text = s.GetComponent<Text>();
+            text.text = message;
         }
     }
 }

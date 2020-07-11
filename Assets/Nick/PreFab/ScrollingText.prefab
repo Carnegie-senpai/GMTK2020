@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5298860427350754871}
   - component: {fileID: 5298860427350754869}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ScrollingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,3 +92,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: Testing if this now quite verbose message still works
+  stationary: {fileID: 9137886892371737159, guid: 40ad11c6dac944a4c8d42b385714620b,
+    type: 3}
