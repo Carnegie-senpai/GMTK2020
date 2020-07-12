@@ -5,30 +5,28 @@ using UnityEngine.UI;
 
 public class TextHandler : MonoBehaviour
 {
-    public GameObject TextPrefab;
-    public GameObject Canvas;
+    private GameObject textObject;
+    private GameObject Canvas;
     public List<string> messages;
 
 
     private GameObject instance;
 
-    private GameObject textObject;
-    private Text text;
-    private float time;
-    private bool enabled;   // Has collided with the player
-    private bool active;    // Whether the text is currently executing a task
+    public Text text;
+    public float time;
+    public bool enabled;   // Has collided with the player
+    public bool active;    // Whether the text is currently executing a task
     private string texts;   // text to appear on screen
-    private int spot;   // Which place in the array of messages it is at
-    private int task;   //-1 not assigned
+    public int spot;   // Which place in the array of messages it is at
+    public int task;   //-1 not assigned
                         // 0 scrolling
                         // 1 deleting
                         // 2 clearing
                    
     private int waitfor; // amount of time for the text to idle
-    private int scrollcount;
-    private int deletecount;
+    public int scrollcount;
+    public int deletecount;
     private int deleteamount;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -39,58 +37,34 @@ public class TextHandler : MonoBehaviour
     // Update is called once per frame
     void Awake()
     {
+
+        textObject = GameObject.FindGameObjectWithTag("Text");
+        Canvas = GameObject.FindGameObjectWithTag("Canvas");
         task = -1;
         spot = 0;
-        active = true;
+        //active = true;
         scrollcount = 0;
-        textObject = Instantiate(TextPrefab, Canvas.transform);
         text = textObject.GetComponent<Text>();
         text.text = "";
         deletecount = 0;
         deleteamount = 0;
         enabled = false;
     }
-    private void OnTriggerEnter2D(Collider2D col)
+  /*  private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player")
+        if (!triggered)
         {
-            active = false;
-            time = Time.time;
-            enabled = true;
-        }
-     /*   texts = "";
-        for (int i = 0; i < messages.Count; i++)
-        {
-            int test = 0;
-            int.TryParse(messages[i], out test);
-            if (test > 0)
+            text.text = "";
+            if (col.gameObject.tag == "Player")
             {
-                DeletingText();
+                active = false;
+                time = Time.time;
+                enabled = true;
+                triggered = true;
             }
-            else
-            {
-                texts += messages[i] + "\n";
-
-            }
-        }*/
-    }
-
-
-
-    void ClearText()
-    {
-        List<GameObject> targets = new List<GameObject>();
-        for (int i = 0; i < Canvas.transform.GetChildCount();i++)
-        {
-            GameObject g = Canvas.transform.GetChild(i).gameObject;
-            targets.Add(g);
-        }
-        for (int i = 0; i < Canvas.transform.GetChildCount(); i++)
-        {
-            Destroy(targets[i]);
         }
     }
-
+    */
     private void Update()
     {
         if (enabled)
@@ -119,7 +93,6 @@ public class TextHandler : MonoBehaviour
                 }
                 else
                 {
-
                     task = 0;
                     time = Time.time;
                 }
@@ -183,7 +156,7 @@ public class TextHandler : MonoBehaviour
                 }
                 else if (task == 2)// clear
                 {
-                    ClearText();
+                    text.text = "";
                 }
             }
         }
