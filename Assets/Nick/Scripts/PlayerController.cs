@@ -186,7 +186,6 @@ public class PlayerController : MonoBehaviour
         }
 
         // State transition resolution and animation triggers
-        if (nextState != state) {
             state = nextState;
             if (shootTimer + shootTime < Time.time) {
                 switch (state) {
@@ -205,7 +204,6 @@ public class PlayerController : MonoBehaviour
                         break;
                 }
             }
-        }
     }
 
     public void Land() {

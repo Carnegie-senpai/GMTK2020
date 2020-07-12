@@ -76902,6 +76902,31 @@ PrefabInstance:
       propertyPath: recoilStrength
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 8666152761715126402, guid: a21e854b04bfae14fa35ae0f6832029a,
+        type: 3}
+      propertyPath: recoilOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8666152761715126403, guid: a21e854b04bfae14fa35ae0f6832029a,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8666152761715126403, guid: a21e854b04bfae14fa35ae0f6832029a,
+        type: 3}
+      propertyPath: m_UseAutoMass
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8666152761715126403, guid: a21e854b04bfae14fa35ae0f6832029a,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8666152761715126403, guid: a21e854b04bfae14fa35ae0f6832029a,
+        type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8666152761715126405, guid: a21e854b04bfae14fa35ae0f6832029a,
         type: 3}
       propertyPath: m_Name
@@ -76921,6 +76946,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8666152762185606395, guid: a21e854b04bfae14fa35ae0f6832029a,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8666152762185606395, guid: a21e854b04bfae14fa35ae0f6832029a,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.20548916
+      objectReference: {fileID: 0}
+    - target: {fileID: 8666152762185606395, guid: a21e854b04bfae14fa35ae0f6832029a,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8666152762185606399, guid: a21e854b04bfae14fa35ae0f6832029a,
         type: 3}
