@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     public GameObject right;
     public GameObject gnome;
     public float direction;
+
+    private Quaternion q;
     // Start is called before the first frame update
     void Awake()
     {
@@ -16,6 +18,7 @@ public class Enemy : MonoBehaviour
         {
             gnome.transform.localScale = new Vector3(-1.0f, 1f, 1f);
         }
+        q = transform.rotation;
     }
 
     // Update is called once per frame
@@ -31,7 +34,7 @@ public class Enemy : MonoBehaviour
             direction = -Mathf.Abs(direction);
             gnome.transform.localScale = new Vector3(1.0f, 1f, 1f);
         }
-        gnome.transform.SetPositionAndRotation(new Vector3(gnome.transform.position.x + direction * Time.deltaTime, gnome.transform.position.y, gnome.transform.position.z), Quaternion.identity);
+        gnome.transform.SetPositionAndRotation(new Vector3(gnome.transform.position.x + direction * Time.deltaTime, gnome.transform.position.y, gnome.transform.position.z), q);
     }
 
 }

@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
         NONE,
         LEFT,
         RIGHT,
+        LEFT_RIGHT,
         UP,
         MOUSE0
     }
@@ -78,6 +79,8 @@ public class PlayerController : MonoBehaviour
                 return Input.GetAxisRaw("Horizontal") < 0;
             case PlayerInput.RIGHT:
                 return Input.GetAxisRaw("Horizontal") > 0;
+            case PlayerInput.LEFT_RIGHT:
+                return Input.GetAxisRaw("Horizontal") != 0;
             case PlayerInput.UP:
                 return Input.GetAxisRaw("Vertical") > 0;
             case PlayerInput.MOUSE0:
@@ -99,8 +102,9 @@ public class PlayerController : MonoBehaviour
             shootTimer = Time.time;
             shootCooldownTimer = Time.time;
             Vector3 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 toMouse = (mousePoint - transform.position).normalized;
+            Vector3 toMouse = mousePoint - transform.position;
             toMouse.z = 0;
+            toMouse = toMouse.normalized;
             rb.velocity -= recoilStrength * (new Vector2(toMouse.x * recoilHorizontalRatio, toMouse.y)) - recoilOffset;
             if (toMouse.x > 0) {
                 sprite.transform.localScale = rightScale;
