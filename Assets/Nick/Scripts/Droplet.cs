@@ -11,7 +11,7 @@ public class Droplet : MonoBehaviour
 
 
     void Awake(){
-         Debug.Log("Assigned particle system");
+         //Debug.Log("Assigned particle system");
         //particle_system = GetComponent<ParticleSystem>();
         position = gameObject.transform.position;
     }
@@ -25,7 +25,7 @@ public class Droplet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)  
     {
-        Debug.Log("Collided here");
+        //Debug.Log("Collided here");
         //particle_system.Play();
        
         Instantiate(particle_system,transform.position,Quaternion.EulerAngles(-90,0,0));
