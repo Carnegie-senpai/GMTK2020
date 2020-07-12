@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 leftScale, rightScale;
 
     private float shootTimer = 0;
+    private bool shot = false;
     private float shootCooldownTimer = 0;
 
     public PlayerState state = PlayerState.IDLE;
@@ -69,7 +70,6 @@ public class PlayerController : MonoBehaviour
     }
 
     private bool checkInput(PlayerInput input) {
-        Debug.Log(input);
         switch (input) {
             case PlayerInput.LEFT:
                 return Input.GetAxisRaw("Horizontal") < 0;
@@ -86,8 +86,8 @@ public class PlayerController : MonoBehaviour
     void Update() {
         // Shooting code (can only handle mouse click input in update
         if (checkInput(restrictions[currentInputSet].shoot) && shootCooldownTimer + shootCooldown < Time.time) {
-            Debug.Log("shoot");
-            shootTimer = shootCooldownTimer = Time.time;
+            shootTimer = Time.time;
+            shootCooldownTimer = Time.time;
             Vector3 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 toMouse = (mousePoint - transform.position).normalized;
             toMouse.z = 0;
@@ -100,9 +100,11 @@ public class PlayerController : MonoBehaviour
                 sprite.transform.rotation = Quaternion.Euler(0, 0, 180 + Mathf.Atan2(toMouse.y, toMouse.x) * Mathf.Rad2Deg);
             }
             anim.SetTrigger("shoot");
+            shot = true;
         }
         // Shot resolution
-        if (shootTimer + shootTime < Time.time) {
+        if (shootTimer + shootTime < Time.time && shot) {
+            shot = false;
             sprite.transform.rotation = Quaternion.identity;
             switch (state) {
                 case PlayerState.IDLE:
@@ -128,9 +130,9 @@ public class PlayerController : MonoBehaviour
             case PlayerState.IDLE:
                 if (rb.velocity.y > jumpPower / 2) {
                     nextState = PlayerState.JUMPING;
-                } else if (rb.velocity.y < 0) {
+                } else if (rb.velocity.y < -jumpPower / 2) {
                     nextState = PlayerState.FREEFALL;
-                } else if (rb.velocity.x != 0) {
+                } else if (Mathf.Abs(rb.velocity.x) > speed / 2) {
                     nextState = PlayerState.WALKING;
                 }
                 if (shootTimer + shootTime < Time.time) {
@@ -140,9 +142,9 @@ public class PlayerController : MonoBehaviour
             case PlayerState.WALKING:
                 if (rb.velocity.y > jumpPower / 2) {
                     nextState = PlayerState.JUMPING;
-                } else if (rb.velocity.y < 0) {
+                } else if (rb.velocity.y < -jumpPower / 2) {
                     nextState = PlayerState.FREEFALL;
-                } else if (rb.velocity.x == 0) {
+                } else if (Mathf.Abs(rb.velocity.x) <= speed / 2) {
                     nextState = PlayerState.IDLE;
                 }
                 if (shootTimer + shootTime < Time.time) {
@@ -154,7 +156,7 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             case PlayerState.JUMPING:
-                if (rb.velocity.y < 0) {
+                if (rb.velocity.y < -jumpPower / 2) {
                     nextState = PlayerState.FREEFALL;
                 }
                 if (shootTimer + shootTime < Time.time) {
@@ -166,11 +168,11 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             case PlayerState.FREEFALL:
-                if (rb.velocity.y < 0) {
+                if (rb.velocity.y < -jumpPower / 2) {
                     nextState = PlayerState.FREEFALL;
-                } else if (rb.velocity.x != 0) {
+                } else if (Mathf.Abs(rb.velocity.x) > speed / 2) {
                     nextState = PlayerState.WALKING;
-                } else if (rb.velocity.x == 0) {
+                } else if (Mathf.Abs(rb.velocity.x) <= speed / 2) {
                     nextState = PlayerState.IDLE;
                 }
                 if (shootTimer + shootTime < Time.time) {
@@ -210,7 +212,7 @@ public class PlayerController : MonoBehaviour
         // To be called by falling hitbox
         if (shootTimer + shootTime < Time.time) {
             if (state == PlayerState.JUMPING || state == PlayerState.FREEFALL) {
-                if (rb.velocity.x != 0) {
+                if (Mathf.Abs(rb.velocity.x) > speed / 2) {
                     anim.SetTrigger("walk");
                 } else {
                     state = PlayerState.IDLE;
@@ -241,6 +243,7 @@ public class PlayerController : MonoBehaviour
 
         v = rb.velocity;
         v.x = dragX * v.x + dx;
+        if (Mathf.Abs(v.x) < 0.01f) v.x = 0;
         rb.velocity = v;
 
         if (rb.velocity.x < 0) right = false;
