@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     public float shootTime = 1.0f;
     public float shootCooldown = 1.0f;
     public float recoilStrength = 5.0f;
+    public float recoilHorizontalRatio = 2.0f;
     public Vector2 recoilOffset = new Vector3(0, 1);
     public int currentInputSet = 0;
     public InputSet[] restrictions = {
@@ -52,8 +53,10 @@ public class PlayerController : MonoBehaviour
     private float shootTimer = 0;
     private bool shot = false;
     private float shootCooldownTimer = 0;
+    public bool setAnimation = false;
 
     public PlayerState state = PlayerState.IDLE;
+    public PlayerState nextState = PlayerState.IDLE;
 
     public GameObject sprite;
     
@@ -84,14 +87,21 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update() {
+        anim.SetBool("shoot", false);
+        anim.SetBool("idle_R", false);
+        anim.SetBool("idle_L", false);
+        anim.SetBool("walk", false);
+        anim.SetBool("jump", false);
+        
         // Shooting code (can only handle mouse click input in update
         if (checkInput(restrictions[currentInputSet].shoot) && shootCooldownTimer + shootCooldown < Time.time) {
+            shot = true;
             shootTimer = Time.time;
             shootCooldownTimer = Time.time;
             Vector3 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 toMouse = (mousePoint - transform.position).normalized;
             toMouse.z = 0;
-            rb.velocity -= recoilStrength * (new Vector2(toMouse.x, toMouse.y)) - recoilOffset;
+            rb.velocity -= recoilStrength * (new Vector2(toMouse.x * recoilHorizontalRatio, toMouse.y)) - recoilOffset;
             if (toMouse.x > 0) {
                 sprite.transform.localScale = rightScale;
                 sprite.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(toMouse.y, toMouse.x) * Mathf.Rad2Deg);
@@ -99,33 +109,35 @@ public class PlayerController : MonoBehaviour
                 sprite.transform.localScale = leftScale;
                 sprite.transform.rotation = Quaternion.Euler(0, 0, 180 + Mathf.Atan2(toMouse.y, toMouse.x) * Mathf.Rad2Deg);
             }
-            anim.SetTrigger("shoot");
-            shot = true;
+            anim.SetBool("shoot", true);
         }
         // Shot resolution
-        if (shootTimer + shootTime < Time.time && shot) {
+        if (((shootTimer + shootTime) < Time.time) && shot) {
             shot = false;
             sprite.transform.rotation = Quaternion.identity;
-            switch (state) {
-                case PlayerState.IDLE:
-                    if (right) {
-                        anim.SetTrigger("idle_R");
-                    } else {
-                        anim.SetTrigger("idle_L");
-                    }
-                    break;
-                case PlayerState.WALKING:
-                    anim.SetTrigger("walk");
-                    break;
-                case PlayerState.JUMPING:
-                    anim.SetTrigger("jump");
-                    break;
+            if (!setAnimation) {
+                switch (state) {
+                    case PlayerState.IDLE:
+                        if (right) {
+                            anim.SetBool("idle_R", true);
+                        } else {
+                            anim.SetBool("idle_L", true);
+                        }
+                        break;
+                    case PlayerState.WALKING:
+                        anim.SetBool("walk", true);
+                        break;
+                    case PlayerState.JUMPING:
+                        anim.SetBool("jump", true);
+                        break;
+                }
+                setAnimation = true;
             }
         }
 
 
         // State transition code
-        PlayerState nextState = state;
+        nextState = state;
         switch (state) {
             case PlayerState.IDLE:
                 if (rb.velocity.y > jumpPower / 2) {
@@ -185,40 +197,38 @@ public class PlayerController : MonoBehaviour
                 break;
         }
 
-        // State transition resolution and animation triggers
-            state = nextState;
-            if (shootTimer + shootTime < Time.time) {
-                switch (state) {
-                    case PlayerState.IDLE:
-                        if (right) {
-                            anim.SetTrigger("idle_R");
-                        } else {
-                            anim.SetTrigger("idle_L");
-                        }
-                        break;
-                    case PlayerState.WALKING:
-                        anim.SetTrigger("walk");
-                        break;
-                    case PlayerState.JUMPING:
-                        anim.SetTrigger("jump");
-                        break;
-                }
+        // State transition resolution and animation Bools
+        if (state != nextState) setAnimation = false;
+        state = nextState;
+        if (!shot && !setAnimation) {
+            //Debug.Log("updating " + shot + " " + Time.time);
+            switch (state) {
+                case PlayerState.IDLE:
+                    if (right) {
+                        anim.SetBool("idle_R", true);
+                    } else {
+                        anim.SetBool("idle_L", true);
+                    }
+                    break;
+                case PlayerState.WALKING:
+                    anim.SetBool("walk", true);
+                    break;
+                case PlayerState.JUMPING:
+                    anim.SetBool("jump", true);
+                    break;
             }
+            setAnimation = true;
+        }
     }
 
     public void Land() {
         // To be called by falling hitbox
-        if (shootTimer + shootTime < Time.time) {
+        if (shootTimer + shootTime < Time.time && !shot) {
             if (state == PlayerState.JUMPING || state == PlayerState.FREEFALL) {
                 if (Mathf.Abs(rb.velocity.x) > speed / 2) {
-                    anim.SetTrigger("walk");
+                    nextState = PlayerState.WALKING;
                 } else {
-                    state = PlayerState.IDLE;
-                    if (right) {
-                        anim.SetTrigger("idle_R");
-                    } else {
-                        anim.SetTrigger("idle_L");
-                    }
+                    nextState = PlayerState.IDLE;
                 }
             }
         }
@@ -226,23 +236,25 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate() {
-        float inX = 0;
-        if (checkInput(restrictions[currentInputSet].left)) inX += -1;
-        if (checkInput(restrictions[currentInputSet].right)) inX += 1;
-        float dx = speed * inX;
+        if (!shot) {
+            float inX = 0;
+            if (checkInput(restrictions[currentInputSet].left)) inX += -1;
+            if (checkInput(restrictions[currentInputSet].right)) inX += 1;
+            float dx = speed * inX;
 
-        Vector2 v = rb.velocity;
-        float inY = checkInput(restrictions[currentInputSet].jump) ? 1 : 0;
-        if (inY > 0 && (state == PlayerState.IDLE || state == PlayerState.WALKING)) {
+            Vector2 v = rb.velocity;
+            float inY = checkInput(restrictions[currentInputSet].jump) ? 1 : 0;
+            if (inY > 0 && (state == PlayerState.IDLE || state == PlayerState.WALKING)) {
+                v = rb.velocity;
+                v.y = jumpPower;
+                rb.velocity = v;
+            }
+
             v = rb.velocity;
-            v.y = jumpPower;
+            v.x = dragX * v.x + dx;
+            if (Mathf.Abs(v.x) < 0.01f) v.x = 0;
             rb.velocity = v;
         }
-
-        v = rb.velocity;
-        v.x = dragX * v.x + dx;
-        if (Mathf.Abs(v.x) < 0.01f) v.x = 0;
-        rb.velocity = v;
 
         if (rb.velocity.x < 0) right = false;
         if (rb.velocity.x > 0) right = true;
