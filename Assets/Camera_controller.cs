@@ -25,9 +25,14 @@ public class Camera_controller : MonoBehaviour
         {
             gameObject.transform.position = new Vector3(center.x, 0f, -10);
 
-            if (center.y < topBound && center.y > lowBound)
+            if (center.y < topBound && center.y-5.32f > lowBound)
             {
-                gameObject.transform.position = new Vector3(center.x, center.y+3.55f, -10);
+                gameObject.transform.position = new Vector3(center.x, center.y, -10);
+            }
+            else
+            {
+                gameObject.transform.position = new Vector3(center.x, 0.1f, -10);
+
             }
         }
     }
