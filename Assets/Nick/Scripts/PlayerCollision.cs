@@ -22,12 +22,12 @@ public class PlayerCollision : MonoBehaviour
         }
 
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+   /* private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Checkpoint")
         {
             player.GetComponent<PlayerController>().RespawnPoint = collision.gameObject.transform.position;
             Debug.Log("Respawn set to " + collision.gameObject.transform.position);
         }
-    }
+    }*/
 }
