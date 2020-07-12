@@ -60,7 +60,14 @@ public class PlayerController : MonoBehaviour
     public PlayerState nextState = PlayerState.IDLE;
 
     public GameObject sprite;
-    
+
+    public AudioClip landingAudio;
+    public float landingAudioVolume = 0.5f;
+    public AudioClip shootAudio;
+    public float shootAudioVolume = 0.5f;
+
+    private AudioSource audio;
+
     private Animator anim;
     private Rigidbody2D rb;
 
@@ -71,6 +78,7 @@ public class PlayerController : MonoBehaviour
         anim = sprite.GetComponent<Animator>();
         rightScale = sprite.transform.localScale;
         leftScale = new Vector3(-rightScale.x, rightScale.y, rightScale.z);
+        audio = GetComponent<AudioSource>();
     }
 
     private bool checkInput(PlayerInput input) {
@@ -114,6 +122,7 @@ public class PlayerController : MonoBehaviour
                 sprite.transform.rotation = Quaternion.Euler(0, 0, 180 + Mathf.Atan2(toMouse.y, toMouse.x) * Mathf.Rad2Deg);
             }
             anim.SetBool("shoot", true);
+            audio.PlayOneShot(shootAudio, shootAudioVolume);
         }
         // Shot resolution
         if (((shootTimer + shootTime) < Time.time) && shot) {
@@ -227,7 +236,7 @@ public class PlayerController : MonoBehaviour
 
     public void Land() {
         // To be called by falling hitbox
-        Debug.Log("ASDF");
+        audio.PlayOneShot(landingAudio, landingAudioVolume);
         if (shootTimer + shootTime < Time.time && !shot) {
             if (state == PlayerState.JUMPING || state == PlayerState.FREEFALL) {
                 if (Mathf.Abs(rb.velocity.x) > speed / 2) {

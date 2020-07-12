@@ -28,6 +28,9 @@ public class TextHandler : MonoBehaviour
     public int deletecount;
     private int deleteamount;
 
+    public AudioClip typingAudio;
+    public float typingVolume = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -115,6 +118,7 @@ public class TextHandler : MonoBehaviour
                     {
                         if (Time.time - time > 0.05)
                         {
+                            GetComponent<AudioSource>().PlayOneShot(typingAudio, typingVolume);
                             if (messages[spot][scrollcount] == '^')
                             {
                                 text.text += "\n";
@@ -139,8 +143,9 @@ public class TextHandler : MonoBehaviour
                 {
                     if (deletecount < deleteamount)
                     {
-                        if (Time.time - time > 0.05)
+                        if (Time.time - time > 0.05) 
                         {
+                            GetComponent<AudioSource>().PlayOneShot(typingAudio, typingVolume);
                             text.text = text.text.Substring(0, text.text.Length - 1);
                             time = Time.time;
                             deletecount++;
