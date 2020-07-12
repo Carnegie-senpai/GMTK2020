@@ -170,6 +170,12 @@ public class PlayerController : MonoBehaviour
             case PlayerState.JUMPING:
                 if (rb.velocity.y < -jumpPower / 2) {
                     nextState = PlayerState.FREEFALL;
+                } else if (rb.velocity.y < jumpPower / 2) {
+                    if (Mathf.Abs(rb.velocity.x) > speed / 2) {
+                        nextState = PlayerState.WALKING;
+                    } else {
+                        nextState = PlayerState.IDLE;
+                    }
                 }
                 if (shootTimer + shootTime < Time.time) {
                     if (right) {
@@ -262,5 +268,6 @@ public class PlayerController : MonoBehaviour
 
     public void Respawn() {
         gameObject.transform.position = RespawnPoint;
+        nextState = PlayerState.IDLE;
     }
 }
