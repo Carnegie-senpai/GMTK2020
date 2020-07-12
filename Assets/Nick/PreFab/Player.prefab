@@ -42,7 +42,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 3547396389477184740}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 51cfbe0e8d81e004992e3e547b1c1646, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3547396389618985598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e8327e21c3d2e84eb937736baf23936, type: 3}
+  m_Script: {fileID: 11500000, guid: 8010a632493176c4c80585c3ebe49085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   RespawnPoint: {x: 0, y: 0, z: 0}
@@ -149,24 +149,24 @@ MonoBehaviour:
   dragX: 0.8
   jumpPower: 10
   shootTime: 0.5
-  shootCooldown: 0.75
-  recoilStrength: 75
-  recoilHorizontalRatio: 0.5
-  recoilOffset: {x: 0, y: 5}
+  shootCooldown: 1.1
+  recoilStrength: 40
+  recoilHorizontalRatio: 0.9
+  recoilOffset: {x: 0, y: 4}
   currentInputSet: 0
   restrictions:
   - left: 1
     right: 2
-    jump: 3
-    shoot: 4
+    jump: 0
+    shoot: 0
   - left: 1
     right: 2
     jump: 3
     shoot: 0
-  - left: 0
-    right: 0
+  - left: 1
+    right: 2
     jump: 0
-    shoot: 4
+    shoot: 0
   - left: 1
     right: 2
     jump: 0
@@ -318,7 +318,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 3547396389871538555}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 51cfbe0e8d81e004992e3e547b1c1646, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

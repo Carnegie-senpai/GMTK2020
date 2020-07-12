@@ -168,14 +168,8 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             case PlayerState.JUMPING:
-                if (rb.velocity.y < -jumpPower / 2) {
+                if (rb.velocity.y < jumpPower / 2) {
                     nextState = PlayerState.FREEFALL;
-                } else if (rb.velocity.y < jumpPower / 2) {
-                    if (Mathf.Abs(rb.velocity.x) > speed / 2) {
-                        nextState = PlayerState.WALKING;
-                    } else {
-                        nextState = PlayerState.IDLE;
-                    }
                 }
                 if (shootTimer + shootTime < Time.time) {
                     if (right) {
@@ -186,7 +180,7 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             case PlayerState.FREEFALL:
-                if (rb.velocity.y < -jumpPower / 2) {
+                if (rb.velocity.y != 0) {
                     nextState = PlayerState.FREEFALL;
                 } else if (Mathf.Abs(rb.velocity.x) > speed / 2) {
                     nextState = PlayerState.WALKING;
@@ -229,6 +223,7 @@ public class PlayerController : MonoBehaviour
 
     public void Land() {
         // To be called by falling hitbox
+        Debug.Log("ASDF");
         if (shootTimer + shootTime < Time.time && !shot) {
             if (state == PlayerState.JUMPING || state == PlayerState.FREEFALL) {
                 if (Mathf.Abs(rb.velocity.x) > speed / 2) {
